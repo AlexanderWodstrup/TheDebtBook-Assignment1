@@ -77,7 +77,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="Models\Dept.cs" />
+    <Compile Include="ViewModels\DeptViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AddDept.xaml.cs">
       <DependentUpon>AddDept.xaml</DependentUpon>

@@ -27,7 +27,7 @@ namespace TheDebtBook_Assignment1.Views
         public void TypeName()
         {
             TextBox textBox = new TextBox();
-            textBox.Header = ""
+            
         }
     }
 }
