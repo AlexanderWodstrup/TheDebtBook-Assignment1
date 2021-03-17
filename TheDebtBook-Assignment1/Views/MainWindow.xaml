@@ -29,7 +29,7 @@
                 IsReadOnly="True"
                 MinRowHeight="16"
                 Name="DgDept" />
-            <Button Grid.Column="1" ToolTip="Add new dept" Margin="9,9,9,9" Style="{StaticResource ResourceKey=ButtonToolbarStyle}" Command="{Binding Path=AddNewDeptCommand}">Add dept</Button>
+            <Button Grid.Column="1" ToolTip="Add new dept" Margin="9,9,9,9" Command="{Binding Path=AddNewDeptCommand}">Add dept</Button>
         </Grid>
 
     </DockPanel>
