@@ -54,7 +54,7 @@ namespace TheDebtBook_Assignment1.ViewModels
             set { SetProperty(ref currentDept, value); }
         }
 
-        private int currentIndex = -1;
+        int currentIndex = -1;
 
         public int CurrentIndex
         {

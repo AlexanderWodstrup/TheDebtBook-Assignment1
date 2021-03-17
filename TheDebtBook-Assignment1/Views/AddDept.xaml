@@ -27,9 +27,11 @@
                         Name="btnSave"
                         Click="BtnSave_Click"
                         Content="_Save"
+                        TabIndex="2"
                         Command="{Binding Path=SaveBtnCommand}">
                 </Button>
                 <Button Grid.Column="1"
+                        TabIndex="3"
                         Margin="5">
                     Cancel
                 </Button>
@@ -50,16 +52,18 @@
                    Grid.Column="0"
                    Grid.Row="1"
                    Margin="5"/>
+
             <TextBox Width="150"
                      Grid.Column="1"
                      Grid.Row="1"
-                     Style="{StaticResource WatermarkName}"
+                     
                      Height="20"
                      Background="LightGray"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Margin="5,5"
                      Name="txxBoxName"
+                     TabIndex="0"
                      Text="{Binding Path=CurrentDept.Name}">
             </TextBox>
             <Label Content="Value: "
@@ -69,13 +73,14 @@
             <TextBox Width="150"
                      Grid.Column="1"
                      Grid.Row="2"
-                     Style="{StaticResource WatermarkValue}"
+                     
                      Height="20"
                      Background="LightGray"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Margin="5,5"
                      Name="txtBoxAmount"
+                     TabIndex="1"
                      Text="{Binding Path=CurrentDept.Amount}">
             </TextBox>
         </Grid>
