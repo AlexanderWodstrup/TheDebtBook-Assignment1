@@ -24,6 +24,7 @@ namespace TheDebtBook_Assignment1
         {
             InitializeComponent();
             //Hej palle
+            //Herro
         }
     }
 }
