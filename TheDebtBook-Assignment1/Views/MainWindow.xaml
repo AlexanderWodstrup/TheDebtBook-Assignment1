@@ -13,6 +13,9 @@
                 <ColumnDefinition Width="1.2*"/>
             </Grid.ColumnDefinitions>
             <DataGrid
+                ItemsSource="{Binding Path=Depts}"
+                SelectedItem="{Binding Path=CurrentDept}"
+                SelectedIndex="{Binding Path=CurrentIndex}"
                 IsSynchronizedWithCurrentItem="True"
                 Grid.Column="0" 
                 Margin="9,9,9,9"
