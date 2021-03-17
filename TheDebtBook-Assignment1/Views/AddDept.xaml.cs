@@ -23,11 +23,5 @@ namespace TheDebtBook_Assignment1.Views
         {
             InitializeComponent();
         }
-
-        public void TypeName()
-        {
-            TextBox textBox = new TextBox();
-            textBox.Header = ""
-        }
     }
 }
