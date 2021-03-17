@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDebtBook_Assignment1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="The Debt Book" Height="450" Width="800">
+    <DockPanel Name="DockPanelMain">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1.2*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid
+                IsSynchronizedWithCurrentItem="True"
+                Grid.Column="0" 
+                Margin="9,9,9,9"
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                IsReadOnly="True"
+                MinRowHeight="12"
+                Name="DgDept" />
+            <Button Grid.Column="1" ToolTip="Add new dept" Margin="9,9,9,9">Add dept</Button>
+        </Grid>
+
+    </DockPanel>
+    
 </Window>

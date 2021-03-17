@@ -23,8 +23,7 @@ namespace TheDebtBook_Assignment1
         public MainWindow()
         {
             InitializeComponent();
-            //Hej palle
-            //Herro
+            
         }
     }
 }
