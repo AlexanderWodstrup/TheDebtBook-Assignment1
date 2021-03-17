@@ -23,5 +23,9 @@ namespace TheDebtBook_Assignment1.Views
         {
             InitializeComponent();
         }
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

@@ -23,6 +23,8 @@ namespace TheDebtBook_Assignment1.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         private ObservableCollection<Dept> depts;
+        private string filePath = "";
+        private string filter;
         private string AppTitle = "The Dept Book - Assignment1";
 
         public MainWindowViewModel()
@@ -34,7 +36,8 @@ namespace TheDebtBook_Assignment1.ViewModels
                 new Dept("Søren", 50)
                 #endif
             };
-            AppTitle = "Unnamed - " + AppTitle;
+            CurrentDept = null;
+
         }
 
         public ObservableCollection<Dept> Depts
@@ -67,13 +70,50 @@ namespace TheDebtBook_Assignment1.ViewModels
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDept = new Dept();
-                    var dlg = new AddDept();
+                    var vm = new DeptViewModel("Add new agent", newDept);
+                    var dlg = new AddDept
+                    {
+                        DataContext = vm
+                    };
                     if (dlg.ShowDialog() == true)
                     {
                         Depts.Add(newDept);
                         CurrentDept = newDept;
+                        Dirty = true;
                     }
                 }));
+            }
+        }
+        private string filename = "";
+        public string Filename
+        {
+            get { return filename; }
+            set
+            {
+                SetProperty(ref filename, value);
+                RaisePropertyChanged("Title");
+            }
+        }
+
+        public string Title
+        {
+            get
+            {
+                var s = "";
+                if (Dirty)
+                    s = "*";
+                return Filename + s + " - " + AppTitle;
+            }
+        }
+
+        private bool dirty = false;
+        public bool Dirty
+        {
+            get { return dirty; }
+            set
+            {
+                SetProperty(ref dirty, value);
+                RaisePropertyChanged("Title");
             }
         }
 

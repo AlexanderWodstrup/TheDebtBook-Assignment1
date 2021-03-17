@@ -40,13 +40,37 @@ namespace TheDebtBook_Assignment1.ViewModels
             {
                 bool isValid = true;
                 if (string.IsNullOrWhiteSpace(CurrentDept.Name))
+                {
                     isValid = false;
+                }
                 return isValid;
             }
             //set
             //{
             //    SetProperty(ref isValid, value);
             //}
+        }
+
+        ICommand _saveBtnCommand;
+        public ICommand SaveBtnCommand
+        {
+            get
+            {
+                return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
+                        SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
+                    .ObservesProperty(() => CurrentDept.Name)
+                    .ObservesProperty(() => CurrentDept.Amount));
+            }
+        }
+
+        private void SaveBtnCommand_Execute()
+        {
+            // Nothing needs to be done here
+        }
+
+        private bool SaveBtnCommand_CanExecute()
+        {
+            return IsValid;
         }
     }
 }

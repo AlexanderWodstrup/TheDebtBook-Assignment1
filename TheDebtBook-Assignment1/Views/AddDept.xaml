@@ -22,8 +22,12 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0"
-                        Margin="5">
-                    Save
+                        Margin="5"
+                        IsDefault="True"
+                        Name="btnSave"
+                        Click="BtnSave_Click"
+                        Content="_Save"
+                        Command="{Binding Path=SaveBtnCommand}">
                 </Button>
                 <Button Grid.Column="1"
                         Margin="5">
@@ -54,7 +58,9 @@
                      Background="LightGray"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
-                     Margin="5,5">
+                     Margin="5,5"
+                     Name="txxBoxName"
+                     Text="{Binding Path=CurrentDept.Name}">
             </TextBox>
             <Label Content="Value: "
                    Grid.Column="0"
@@ -68,7 +74,9 @@
                      Background="LightGray"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
-                     Margin="5,5">
+                     Margin="5,5"
+                     Name="txtBoxAmount"
+                     Text="{Binding Path=CurrentDept.Amount}">
             </TextBox>
         </Grid>
     </DockPanel>

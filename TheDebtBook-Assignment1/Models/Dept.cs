@@ -9,8 +9,8 @@ namespace TheDebtBook_Assignment1.Models
 {
     public class Dept : BindableBase
     {
-        private string name;
-        private int amount;
+        string name;
+        int amount;
 
         public Dept()
         {
@@ -21,6 +21,11 @@ namespace TheDebtBook_Assignment1.Models
         {
             name = dName;
             amount = dAmount;
+        }
+
+        public Dept Clone()
+        {
+            return this.MemberwiseClone() as Dept;
         }
 
         public string Name
