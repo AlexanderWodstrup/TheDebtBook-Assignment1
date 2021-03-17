@@ -4,24 +4,6 @@
              xmlns:local="clr-namespace:TheDebtBook_Assignment1"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="ButtonToolbarStyle" TargetType="{x:Type Button}" >
-            <Style.Setters>
-                <Setter Property="Height" Value="auto" />
-                <Setter Property="Width" Value="auto" />
-                <Setter Property="Foreground" Value="DarkBlue" />
-                <Setter Property="FontWeight" Value="ExtraBold" />
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontFamily" Value="Arial" />
-            </Style.Setters>
-            <Style.Triggers>
-                <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Effect" >
-                        <Setter.Value>
-                            <DropShadowEffect ShadowDepth="2" />
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+
     </Application.Resources>
 </Application>
