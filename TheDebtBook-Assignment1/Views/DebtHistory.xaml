@@ -1,0 +1,78 @@
+﻿<Window x:Class="TheDebtBook_Assignment1.Views.DebtHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheDebtBook_Assignment1.Views"
+        mc:Ignorable="d"
+        Title="DebtHistory" Height="450" Width="800">
+    
+    <DockPanel x:Name="History">
+        <DockPanel DockPanel.Dock="Top">
+            <Label Content="Debt History"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Background="AliceBlue"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Close"
+                    Content="_Close"
+                    FontSize="20"
+                    Width="90"
+                    Height="30"
+                    Grid.Column="0"
+                    Margin="9,9"/>
+            </Grid>
+        </DockPanel>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid
+                ItemsSource="{Binding Path=Depts}"
+                SelectedItem="{Binding Path=CurrentDept}"
+                SelectedIndex="{Binding Path=CurrentIndex}"
+                IsSynchronizedWithCurrentItem="True"
+                Grid.Column="0"
+                Grid.Row="1"
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False" 
+                IsReadOnly="True"
+                MinRowHeight="16"
+                Name="HistoryGrid" Margin="10,10,0,-200" Grid.RowSpan="2" />
+
+            <Button x:Name="Value"
+                    Content="_Value"
+                    FontSize="20"
+                    Width="90"
+                    Height="30"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="10,5"
+                    HorizontalAlignment="Right"/>
+            
+            <Button x:Name="AddValue"
+                    Content="_Add Value"
+                    FontSize="20"
+                    Width="150"
+                    Height="30"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Margin="1,5"
+                    HorizontalAlignment="Right"/>
+        </Grid>
+    </DockPanel>
+</Window>

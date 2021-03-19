@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DebtHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,11 +83,16 @@
     </Compile>
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Models\Dept.cs" />
+    <Compile Include="Models\History.cs" />
+    <Compile Include="ViewModels\DebtHistoryViewModel.cs" />
     <Compile Include="Models\DeptHistory.cs" />
     <Compile Include="ViewModels\DeptViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AddDept.xaml.cs">
       <DependentUpon>AddDept.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DebtHistory.xaml.cs">
+      <DependentUpon>DebtHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
