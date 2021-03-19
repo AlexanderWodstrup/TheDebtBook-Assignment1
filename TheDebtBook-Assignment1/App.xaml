@@ -23,6 +23,12 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+        <Style  x:Name="HistoryTable" TargetType="{x:Type Table}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <!--<Border Style="{StaticResource HistoryTable}">
+            <TextBlock />
+        </Border>-->
     </Application.Resources>
 </Application>
