@@ -67,19 +67,37 @@ namespace TheDebtBook_Assignment1.ViewModels
         {
             get
             {
+                
+
+                
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDept = new Dept();
                     var vm = new DeptViewModel("Add new agent", newDept);
                     var dlg = new AddDept
                     {
+                        
                         DataContext = vm
                     };
+                    
                     if (dlg.ShowDialog() == true)
                     {
-                        Depts.Add(newDept);
-                        CurrentDept = newDept;
-                        Dirty = true;
+                        bool alreadyExists = false;
+                        foreach (var depts in Depts)
+                        {
+                            if (depts.Name.Equals(newDept.Name))
+                            {
+                                depts.Amount = depts.Amount + newDept.Amount;
+                                Console.WriteLine("HEJ!");
+                                alreadyExists = true;
+                            }
+                        }
+
+                        if (alreadyExists == false)
+                        {
+                            Depts.Add(newDept);
+                            CurrentDept = newDept;
+                        }
                     }
                 }));
             }
@@ -95,27 +113,27 @@ namespace TheDebtBook_Assignment1.ViewModels
             }
         }
 
-        public string Title
-        {
-            get
-            {
-                var s = "";
-                if (Dirty)
-                    s = "*";
-                return Filename + s + " - " + AppTitle;
-            }
-        }
+        //public string Title
+        //{
+        //    get
+        //    {
+        //        var s = "";
+        //        if (Dirty)
+        //            s = "*";
+        //        return Filename + s + " - " + AppTitle;
+        //    }
+        //}
 
-        private bool dirty = false;
-        public bool Dirty
-        {
-            get { return dirty; }
-            set
-            {
-                SetProperty(ref dirty, value);
-                RaisePropertyChanged("Title");
-            }
-        }
+        //private bool dirty = false;
+        //public bool Dirty
+        //{
+        //    get { return dirty; }
+        //    set
+        //    {
+        //        SetProperty(ref dirty, value);
+        //        RaisePropertyChanged("Title");
+        //    }
+        //}
 
     }
 }

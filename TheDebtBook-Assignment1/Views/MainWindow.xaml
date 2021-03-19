@@ -11,7 +11,16 @@
         <viewModels:MainWindowViewModel />
     </Window.DataContext>
     <DockPanel Name="DockPanelMain">
-        <Grid>
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                Content="The Dept Book"
+                Grid.Column="0"
+                Grid.Row="0"
+                FontSize="20"
+                FontWeight="Bold"
+                Background="AliceBlue"/>
+        </DockPanel>
+        <Grid Background="AliceBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="1.2*"/>
@@ -28,7 +37,8 @@
                 CanUserDeleteRows="False" 
                 IsReadOnly="True"
                 MinRowHeight="16"
-                Name="DgDept" />
+                Name="DgDept" 
+                FontSize="20"/>
             <Button Grid.Column="1" ToolTip="Add new dept" Margin="9,9,9,9" Style="{StaticResource ResourceKey=ButtonToolbarStyle}" Command="{Binding Path=AddNewDeptCommand}">Add dept</Button>
         </Grid>
 
