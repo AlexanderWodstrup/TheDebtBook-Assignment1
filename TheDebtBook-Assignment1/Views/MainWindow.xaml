@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDebtBook_Assignment1"
         xmlns:viewModels="clr-namespace:TheDebtBook_Assignment1.ViewModels"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="The Debt Book" Height="450" Width="800">
     <Window.DataContext>
@@ -38,7 +40,13 @@
                 IsReadOnly="True"
                 MinRowHeight="16"
                 Name="DgDept" 
-                FontSize="20"/>
+                FontSize="20">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="MouseDoubleClick">
+                        <prism:InvokeCommandAction Command="{Binding Path = EditDeptCommand}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </DataGrid>
             <Button Grid.Column="1" ToolTip="Add new dept" Margin="9,9,9,9" Style="{StaticResource ResourceKey=ButtonToolbarStyle}" Command="{Binding Path=AddNewDeptCommand}">Add dept</Button>
         </Grid>
 

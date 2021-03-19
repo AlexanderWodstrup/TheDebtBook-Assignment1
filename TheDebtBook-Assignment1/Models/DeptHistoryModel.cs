@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheDebtBook_Assignment1.Models
 {
-    public class DeptHistory
+    public class DeptHistoryModel
     {
         public string Name { get; set; }
         public string Date { get; set; }

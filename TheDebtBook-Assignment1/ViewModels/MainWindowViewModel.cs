@@ -67,9 +67,6 @@ namespace TheDebtBook_Assignment1.ViewModels
         {
             get
             {
-                
-
-                
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDept = new Dept();
@@ -88,7 +85,6 @@ namespace TheDebtBook_Assignment1.ViewModels
                             if (depts.Name.Equals(newDept.Name))
                             {
                                 depts.Amount = depts.Amount + newDept.Amount;
-                                Console.WriteLine("HEJ!");
                                 alreadyExists = true;
                             }
                         }
@@ -102,6 +98,35 @@ namespace TheDebtBook_Assignment1.ViewModels
                 }));
             }
         }
+
+        ICommand _editCommand;
+        public ICommand EditDeptCommand
+        {
+            get
+            {
+                return _editCommand ?? (_editCommand = new DelegateCommand(() =>
+                    {
+                        var tmpDept = CurrentDept.Clone();
+                        var vm = new DeptViewModel("Edit Dept", tmpDept);
+
+                        var dlg = new DebtHistory();
+                        dlg.DataContext = vm;
+                        dlg.Owner = App.Current.MainWindow;
+                        if (dlg.ShowDialog() == true)
+                        {
+                            // Copy values back
+                            CurrentDept.Name = tmpDept.Name;
+                            CurrentDept.Amount = tmpDept.Amount;
+                        }
+                    },
+                    () =>
+                    {
+                        return CurrentIndex >= 0;
+                    }
+                ).ObservesProperty(() => CurrentIndex));
+            }
+        }
+
         private string filename = "";
         public string Filename
         {

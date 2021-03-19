@@ -10,7 +10,7 @@ namespace TheDebtBook_Assignment1.Models
     public class Dept : BindableBase
     {
         string name;
-        List<DeptHistory> _deptHistory = new List<DeptHistory>();
+        List<DeptHistoryModel> _deptHistory = new List<DeptHistoryModel>();
         int amount;
 
         public Dept()
@@ -23,7 +23,7 @@ namespace TheDebtBook_Assignment1.Models
             name = dName;
             //amount = dAmount;
             string date = DateTime.Now.ToString("dd/mm");
-            _deptHistory.Add(new DeptHistory() {Name = name, Date = date, Amount = dAmount });
+            _deptHistory.Add(new DeptHistoryModel() {Name = name, Date = date, Amount = dAmount });
         }
 
         public Dept Clone()
@@ -49,7 +49,7 @@ namespace TheDebtBook_Assignment1.Models
             {
                 foreach (var VARIABLE in _deptHistory)
                 {
-                    amount += VARIABLE.Amount;
+                    amount = amount + VARIABLE.Amount;
                 }
                 return amount;
             }

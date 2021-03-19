@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -85,7 +86,7 @@
     <Compile Include="Models\Dept.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="ViewModels\DebtHistoryViewModel.cs" />
-    <Compile Include="Models\DeptHistory.cs" />
+    <Compile Include="Models\DeptHistoryModel.cs" />
     <Compile Include="ViewModels\DeptViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AddDept.xaml.cs">

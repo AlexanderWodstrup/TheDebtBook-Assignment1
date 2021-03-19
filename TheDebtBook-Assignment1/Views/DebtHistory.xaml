@@ -71,7 +71,7 @@
                     Height="30"
                     Grid.Column="1"
                     Grid.Row="2"
-                    Margin="1,5"
+                    Margin="10,5"
                     HorizontalAlignment="Right"/>
         </Grid>
     </DockPanel>
