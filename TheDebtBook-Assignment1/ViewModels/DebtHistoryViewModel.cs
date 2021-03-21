@@ -23,12 +23,14 @@ namespace TheDebtBook_Assignment1.ViewModels
         }
         public DebtHistoryViewModel(Dept b1)
         {
-            //Dept b1 = new Dept();
             List<DeptHistoryModel> calledList = b1.GetList();
             deptsHistory = new ObservableCollection<DeptHistoryModel>();
             foreach (var VARIABLE in calledList)
             {
-                deptsHistory.Add(new DeptHistoryModel(VARIABLE.Name, VARIABLE.Amount, "21-03-2021"));
+                if (VARIABLE.Amount != 0)
+                {
+                    deptsHistory.Add(new DeptHistoryModel(VARIABLE.Name, VARIABLE.Amount, "21-03-2021"));
+                }
             }
             
             CurrentDept = null;

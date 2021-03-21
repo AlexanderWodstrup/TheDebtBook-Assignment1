@@ -60,12 +60,13 @@ namespace TheDebtBook_Assignment1.Models
         {
             get
             {
-                _deptHistory.Add(new DeptHistoryModel(){Name = name, Date = "date", Amount = amount});
                 return amount;
             }
             set
             {
+                int lastAmount = Amount;
                 SetProperty(ref amount, value);
+                _deptHistory.Add(new DeptHistoryModel() { Name = name, Date = "date", Amount = amount - lastAmount });
             }
         }
     }
