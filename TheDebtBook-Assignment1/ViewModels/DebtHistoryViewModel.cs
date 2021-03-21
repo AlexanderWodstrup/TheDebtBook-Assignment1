@@ -19,7 +19,6 @@ namespace TheDebtBook_Assignment1.ViewModels
         private string name;
         int amount;
         private string date;
-        public bool IsValid = true;
         public DebtHistoryViewModel()
         {
 
@@ -72,6 +71,19 @@ namespace TheDebtBook_Assignment1.ViewModels
             }
         }
 
+        public bool IsValid
+        {
+            get
+            {
+                bool isValid = true;
+                if (CurrentDept.Amount == 0)
+                {
+                    isValid = false;
+                }
+                return isValid;
+            }
+        }
+
         public int Amount
         {
             get
@@ -99,14 +111,35 @@ namespace TheDebtBook_Assignment1.ViewModels
             }
             
         }
-    private void CloseBtnCommand_Execute()
-    {
-        // Nothing needs to be done here
-    }
+        private void CloseBtnCommand_Execute()
+        {
+            // Nothing needs to be done here
+        }
 
-    private bool CloseBtnCommand_CanExecute()
-    {
-        return IsValid;
+        private bool CloseBtnCommand_CanExecute()
+        {
+            return IsValid;
+        }
+
+        ICommand _addValueBtnCommand;
+        public ICommand AddValueBtnCommand
+        {
+            get
+            {
+                return _addValueBtnCommand ?? (_addValueBtnCommand = new DelegateCommand(
+                AddValueBtnCommand_Execute, AddValueBtnCommand_CanExecute)
+                .ObservesProperty(() => CurrentDept.Amount));
+            }
+        }
+
+        private void AddValueBtnCommand_Execute()
+        {
+            // Nothing needs to be done here
+        }
+
+        private bool AddValueBtnCommand_CanExecute()
+        {
+            return IsValid;
+        }
     }
-}
 }
