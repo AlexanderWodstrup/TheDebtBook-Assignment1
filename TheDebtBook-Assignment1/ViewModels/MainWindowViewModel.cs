@@ -22,7 +22,7 @@ namespace TheDebtBook_Assignment1.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private ObservableCollection<Dept> depts;
+        public ObservableCollection<Dept> depts;
         private string filePath = "";
         private string filter;
         private string AppTitle = "The Dept Book - Assignment1";
@@ -107,7 +107,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                 return _editCommand ?? (_editCommand = new DelegateCommand(() =>
                     {
                         var tmpDept = CurrentDept.Clone();
-                        var vm = new DeptViewModel("Edit Dept", tmpDept);
+                        var vm = new DebtHistoryViewModel(tmpDept);
 
                         var dlg = new DebtHistory();
                         dlg.DataContext = vm;

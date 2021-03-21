@@ -3,13 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prism.Mvvm;
 
 namespace TheDebtBook_Assignment1.Models
 {
-    public class DeptHistoryModel
+    public class DeptHistoryModel : BindableBase
     {
-        public string Name { get; set; }
-        public string Date { get; set; }
-        public int Amount { get; set; }
+        private string name;
+        private int amount;
+        private string date;
+
+        public DeptHistoryModel()
+        {
+
+        }
+        public DeptHistoryModel(string dName, int dAmount, string dDate)
+        {
+            name = dName;
+            amount = dAmount;
+            //date = DateTime.Now.ToString("dd/mm");
+            date = dDate;
+        }
+        public Dept Clone()
+        {
+            return this.MemberwiseClone() as Dept;
+        }
+
+        public string Name
+        {
+            get { return name;}
+            set { SetProperty(ref name, value); }
+        }
+        public string Date
+        {
+            get { return date;}
+            set { SetProperty(ref date, value); }
+        }
+        public int Amount
+        {
+            get { return amount;}
+            set { SetProperty(ref amount, value); }
+        }
     }
 }

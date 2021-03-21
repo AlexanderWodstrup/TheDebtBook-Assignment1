@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDebtBook_Assignment1.Views"
+        xmlns:viewModels="clr-namespace:TheDebtBook_Assignment1.ViewModels"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="DebtHistory" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModels:DebtHistoryViewModel />
+    </Window.DataContext>
     
     <DockPanel x:Name="History">
         <DockPanel DockPanel.Dock="Top">
@@ -42,7 +48,7 @@
             </Grid.ColumnDefinitions>
 
             <DataGrid
-                ItemsSource="{Binding Path=Depts}"
+                ItemsSource="{Binding Path=DeptsHistory}"
                 SelectedItem="{Binding Path=CurrentDept}"
                 SelectedIndex="{Binding Path=CurrentIndex}"
                 IsSynchronizedWithCurrentItem="True"
