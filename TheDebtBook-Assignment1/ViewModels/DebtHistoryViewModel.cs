@@ -107,9 +107,30 @@ namespace TheDebtBook_Assignment1.ViewModels
         {
             get
             {
-                return _closeBtnCommand ?? (_closeBtnCommand = new DelegateCommand(CloseBtnCommand_Execute, CloseBtnCommand_CanExecute));
+                return _addValueBtnCommand ?? (_addValueBtnCommand = new DelegateCommand(
+                AddValueBtnCommand_Execute, AddValueBtnCommand_CanExecute)
+                .ObservesProperty(() => Amount));
+                //return _addValueBtnCommand ?? (_addValueBtnCommand = new DelegateCommand(() =>
+                //{
+                //    var newDept = new DeptHistoryModel();
+                //    newDept.Name = currentDept.Name;
+                //    newDept.Amount = currentDept.Amount;
+                //    newDept.Date = "21-03-2021";
+                //    DeptsHistory.Add(newDept);
+                //    CurrentDept = newDept;
+
+                //}));
             }
-            
+        }
+
+        private void AddValueBtnCommand_Execute()
+        {
+            // Nothing needs to be done here
+        }
+
+        private bool AddValueBtnCommand_CanExecute()
+        {
+            return IsValid;
         }
     }
 }
