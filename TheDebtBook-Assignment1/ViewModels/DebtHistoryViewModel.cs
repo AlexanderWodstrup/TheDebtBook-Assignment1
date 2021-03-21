@@ -44,9 +44,9 @@ namespace TheDebtBook_Assignment1.ViewModels
             set { SetProperty(ref deptsHistory, value); }
         }
 
-        Dept currentDept = null;
+        DeptHistoryModel currentDept = null;
 
-        public Dept CurrentDept
+        public DeptHistoryModel CurrentDept
         {
             get { return currentDept; }
             set { SetProperty(ref currentDept, value); }
@@ -101,24 +101,24 @@ namespace TheDebtBook_Assignment1.ViewModels
             get { return date; }
             set { SetProperty(ref date, value); }
         }
-
-        ICommand _closeBtnCommand;
-        public ICommand CloseBtnCommand
+        
+        ICommand _addValueBtnCommand;
+        public ICommand AddValueBtnCommand
         {
-            get 
+            get
             {
                 return _closeBtnCommand ?? (_closeBtnCommand = new DelegateCommand(CloseBtnCommand_Execute, CloseBtnCommand_CanExecute));
             }
             
         }
-        private void CloseBtnCommand_Execute()
-        {
-            // Nothing needs to be done here
-        }
-
-        private bool CloseBtnCommand_CanExecute()
-        {
-            return IsValid;
-        }
+    private void CloseBtnCommand_Execute()
+    {
+        // Nothing needs to be done here
     }
+
+    private bool CloseBtnCommand_CanExecute()
+    {
+        return IsValid;
+    }
+}
 }

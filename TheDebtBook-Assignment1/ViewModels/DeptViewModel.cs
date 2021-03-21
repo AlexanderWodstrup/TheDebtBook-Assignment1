@@ -30,7 +30,7 @@ namespace TheDebtBook_Assignment1.ViewModels
             get
             {
                 bool isValid = true;
-                if (string.IsNullOrWhiteSpace(CurrentDept.Name) || CurrentDept.Amount == 0)
+                if (string.IsNullOrWhiteSpace(CurrentDept.Name))
                 {
                     isValid = false;
                 }
