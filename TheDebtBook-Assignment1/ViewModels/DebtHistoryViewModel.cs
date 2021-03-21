@@ -111,14 +111,5 @@ namespace TheDebtBook_Assignment1.ViewModels
             }
             
         }
-    private void CloseBtnCommand_Execute()
-    {
-        // Nothing needs to be done here
     }
-
-    private bool CloseBtnCommand_CanExecute()
-    {
-        return IsValid;
-    }
-}
 }
