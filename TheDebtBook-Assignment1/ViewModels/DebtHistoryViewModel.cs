@@ -35,7 +35,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                 }
             }
             
-            CurrentDept = b1;
+            CurrentDept = null;
         }
 
         public ObservableCollection<DeptHistoryModel> DeptsHistory
