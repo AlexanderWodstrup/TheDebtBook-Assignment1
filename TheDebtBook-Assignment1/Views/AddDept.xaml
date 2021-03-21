@@ -75,7 +75,6 @@
             <TextBox Width="150"
                      Grid.Column="1"
                      Grid.Row="2"
-                     
                      Height="20"
                      Background="LightGray"
                      HorizontalAlignment="Left"
