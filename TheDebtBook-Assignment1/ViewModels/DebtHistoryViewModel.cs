@@ -28,7 +28,6 @@ namespace TheDebtBook_Assignment1.ViewModels
             deptsHistory = new ObservableCollection<DeptHistoryModel>();
             foreach (var VARIABLE in calledList)
             {
-                
                 deptsHistory.Add(new DeptHistoryModel(VARIABLE.Name, VARIABLE.Amount, "21-03-2021"));
             }
             
