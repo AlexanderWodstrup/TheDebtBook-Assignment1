@@ -35,7 +35,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                 }
             }
             
-            CurrentDept = null;
+            CurrentDept = b1;
         }
 
         public ObservableCollection<DeptHistoryModel> DeptsHistory
@@ -111,14 +111,14 @@ namespace TheDebtBook_Assignment1.ViewModels
             }
             
         }
-    private void CloseBtnCommand_Execute()
-    {
-        // Nothing needs to be done here
-    }
+        private void CloseBtnCommand_Execute()
+        {
+            // Nothing needs to be done here
+        }
 
-    private bool CloseBtnCommand_CanExecute()
-    {
-        return IsValid;
+        private bool CloseBtnCommand_CanExecute()
+        {
+            return IsValid;
+        }
     }
-}
 }
