@@ -70,7 +70,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDept = new Dept();
-                    var vm = new DeptViewModel("Add new agent", newDept);
+                    var vm = new DeptViewModel(newDept);
                     var dlg = new AddDept
                     {
                         

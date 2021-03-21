@@ -13,18 +13,9 @@ namespace TheDebtBook_Assignment1.ViewModels
 {
     public class DeptViewModel : BindableBase
     {
-        public DeptViewModel(string title, Dept dept)
+        public DeptViewModel(Dept dept)
         {
-            Title = title;
             CurrentDept = dept;
-        }
-
-        string title;
-
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
         }
 
         private Dept currentDept;
@@ -39,7 +30,7 @@ namespace TheDebtBook_Assignment1.ViewModels
             get
             {
                 bool isValid = true;
-                if (string.IsNullOrWhiteSpace(CurrentDept.Name))
+                if (string.IsNullOrWhiteSpace(CurrentDept.Name) || CurrentDept.Amount == 0)
                 {
                     isValid = false;
                 }

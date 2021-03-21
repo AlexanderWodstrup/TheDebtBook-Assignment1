@@ -90,23 +90,5 @@ namespace TheDebtBook_Assignment1.ViewModels
             set { SetProperty(ref date, value); }
         }
 
-        ICommand _closeBtnCommand;
-        public ICommand CloseBtnCommand
-        {
-            get 
-            {
-                return _closeBtnCommand ?? (_closeBtnCommand = new DelegateCommand(CloseBtnCommand_Execute, CloseBtnCommand_CanExecute));
-            }
-            
-        }
-    private void CloseBtnCommand_Execute()
-    {
-        // Nothing needs to be done here
-    }
-
-    private bool CloseBtnCommand_CanExecute()
-    {
-        return IsValid;
-    }
 }
 }
