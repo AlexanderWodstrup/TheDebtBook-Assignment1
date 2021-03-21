@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Mvvm;
+using System.Windows.Input;
 using TheDebtBook_Assignment1.Models;
 using TheDebtBook_Assignment1.ViewModels;
+
 
 namespace TheDebtBook_Assignment1.ViewModels
 {
@@ -17,6 +19,7 @@ namespace TheDebtBook_Assignment1.ViewModels
         private string name;
         int amount;
         private string date;
+        public bool IsValid = true;
         public DebtHistoryViewModel()
         {
 
@@ -85,5 +88,24 @@ namespace TheDebtBook_Assignment1.ViewModels
             get { return date; }
             set { SetProperty(ref date, value); }
         }
+
+        ICommand _closeBtnCommand;
+        public ICommand CloseBtnCommand
+        {
+            get 
+            {
+                return _closeBtnCommand ?? (_closeBtnCommand = new DelegateCommand(CloseBtnCommand_Execute, CloseBtnCommand_CanExecute));
+            }
+            
+        }
+    private void CloseBtnCommand_Execute()
+    {
+        // Nothing needs to be done here
     }
+
+    private bool CloseBtnCommand_CanExecute()
+    {
+        return IsValid;
+    }
+}
 }

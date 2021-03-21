@@ -23,5 +23,15 @@ namespace TheDebtBook_Assignment1.Views
         {
             InitializeComponent();
         }
+
+        private void HistoryGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

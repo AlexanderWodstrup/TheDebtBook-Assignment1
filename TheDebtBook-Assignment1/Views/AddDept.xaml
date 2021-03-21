@@ -31,9 +31,11 @@
                         Command="{Binding Path=SaveBtnCommand}">
                 </Button>
                 <Button Grid.Column="1"
+                        Name="btnCancel"
+                        IsCancel="True"
                         TabIndex="3"
+                        Content="_Cancel"
                         Margin="5">
-                    Cancel
                 </Button>
             </Grid>
         </DockPanel>

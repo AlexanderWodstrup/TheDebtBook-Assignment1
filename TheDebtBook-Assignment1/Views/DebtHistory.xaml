@@ -9,9 +9,7 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="DebtHistory" Height="450" Width="800">
-    <Window.DataContext>
-        <viewModels:DebtHistoryViewModel />
-    </Window.DataContext>
+
     
     <DockPanel x:Name="History">
         <DockPanel DockPanel.Dock="Top">
@@ -26,7 +24,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Close"
+                <Button x:Name="btnClose"
+                    Click="btnClose_Click"
+                    Command="{Binding Path=CloseBtnCommand}"
+                    IsDefault="True"
                     Content="_Close"
                     FontSize="20"
                     Width="90"
@@ -60,16 +61,17 @@
                 MinRowHeight="16"
                 Name="HistoryGrid" Margin="10,10,0,-200" Grid.RowSpan="2" />
 
-            <Button x:Name="Value"
-                    Content="_Value"
-                    FontSize="20"
-                    Width="90"
-                    Height="30"
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    Margin="10,5"
-                    HorizontalAlignment="Right"/>
-            
+            <TextBox Width="150"
+                     FontSize="20"
+                     Height="30"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     HorizontalAlignment="Right"
+                     Margin="10,5"
+                     Background="LightGray"
+                     BorderBrush="Black"
+                     />
+
             <Button x:Name="AddValue"
                     Content="_Add Value"
                     FontSize="20"
