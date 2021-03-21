@@ -73,7 +73,6 @@ namespace TheDebtBook_Assignment1.ViewModels
                     var vm = new DeptViewModel(newDept);
                     var dlg = new AddDept
                     {
-                        
                         DataContext = vm
                     };
                     
@@ -84,7 +83,6 @@ namespace TheDebtBook_Assignment1.ViewModels
                         {
                             if (depts.Name.Equals(newDept.Name))
                             {
-                                
                                 depts.Amount = depts.Amount + newDept.Amount;
                                 alreadyExists = true;
                             }
