@@ -121,15 +121,20 @@ namespace TheDebtBook_Assignment1.ViewModels
                         if (dlg.ShowDialog() == true)
                         {
                             // Copy values back
-                            CurrentDept.Name = tmpDept.Name;
-                            CurrentDept.Amount = tmpDept.Amount;
+                            //CurrentDept.Name = tmpDept.Name;
+                            int lastAmount = 0;
+
+                            for (int i = 0; i < CurrentDept._deptHistory.Count; i++)
+                            {
+                                if (CurrentDept._deptHistory[i].Amount != 0 && CurrentDept._deptHistory[i] != null)
+                                {
+                                    lastAmount += CurrentDept._deptHistory[i].Amount;
+                                }
+                            }
+                            CurrentDept.Amount = lastAmount;
                         }
-                    },
-                    () =>
-                    {
-                        return CurrentIndex >= 0;
                     }
-                ).ObservesProperty(() => CurrentIndex));
+                ));
             }
         }
 
