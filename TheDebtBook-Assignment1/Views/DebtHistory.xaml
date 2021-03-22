@@ -51,7 +51,7 @@
             <DataGrid
                 ItemsSource="{Binding Path=DeptsHistory}"
                 SelectedItem="{Binding Path=CurrentDept}"
-                SelectedIndex="{Binding Path=CurrentIndex}"
+                
                 IsSynchronizedWithCurrentItem="True"
                 Grid.Column="0"
                 Grid.Row="1"
