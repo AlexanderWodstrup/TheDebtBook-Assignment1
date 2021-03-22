@@ -24,7 +24,7 @@ namespace TheDebtBook_Assignment1.ViewModels
         
         public DebtHistoryViewModel()
         {
-
+            CurrentDept = new Dept();
         }
         public DebtHistoryViewModel(Dept b1)
         {
