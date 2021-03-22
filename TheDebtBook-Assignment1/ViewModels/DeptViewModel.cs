@@ -36,10 +36,6 @@ namespace TheDebtBook_Assignment1.ViewModels
                 }
                 return isValid;
             }
-            //set
-            //{
-            //    SetProperty(ref isValid, value);
-            //}
         }
 
         ICommand _saveBtnCommand;
@@ -55,9 +51,7 @@ namespace TheDebtBook_Assignment1.ViewModels
         }
 
         private void SaveBtnCommand_Execute()
-        {
-            // Nothing needs to be done here
-        }
+        {}
 
         private bool SaveBtnCommand_CanExecute()
         {

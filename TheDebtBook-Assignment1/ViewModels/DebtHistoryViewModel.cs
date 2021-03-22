@@ -18,10 +18,7 @@ namespace TheDebtBook_Assignment1.ViewModels
     public class DebtHistoryViewModel : BindableBase
     {
         public ObservableCollection<DeptHistoryModel> deptsHistory;
-        private string name;
-        int amount;
-        private string date;
-        
+
         public DebtHistoryViewModel()
         {
             CurrentDept = new Dept();
@@ -54,50 +51,6 @@ namespace TheDebtBook_Assignment1.ViewModels
             set { SetProperty(ref currentDept, value); }
         }
 
-        
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                SetProperty(ref name, value);
-            }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                bool isValid = true;
-                //if (CurrentDept.Amount == 0)
-                //{
-                //    isValid = false;
-                //}
-                return isValid;
-            }
-        }
-
-        public int Amount
-        {
-            get
-            {
-                return amount;
-            }
-            set
-            {
-                SetProperty(ref amount, value);
-            }
-        }
-
-        public string Date
-        {
-            get { return date; }
-            set { SetProperty(ref date, value); }
-        }
-        
         ICommand _addValueBtnCommand;
         public ICommand AddValueBtnCommand
         {
@@ -108,21 +61,11 @@ namespace TheDebtBook_Assignment1.ViewModels
                         var newDept = new DeptHistoryModel();
                         newDept.Name = CurrentDept.Name;
                         newDept.Amount = CurrentDept.Amount;
-                        newDept.Date = "26-03-2021";
+                        newDept.Date = DateTime.Today.ToString("D");
                         deptsHistory.Add(newDept);
                         CurrentDept._deptHistory.Add(newDept);
                     }));
             }
-        }
-
-        private void AddValueBtnCommand_Execute()
-        {
-
-        }
-
-        private bool AddValueBtnCommand_CanExecute()
-        {
-            return IsValid;
         }
     }
 }

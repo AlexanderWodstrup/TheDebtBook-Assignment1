@@ -22,7 +22,7 @@ namespace TheDebtBook_Assignment1.Models
         {
             name = dName;
             amount = dAmount;
-            string date = DateTime.Now.ToString("dd/mm/yy");
+            string date = DateTime.Today.ToString("D");
             _deptHistory.Add(new DeptHistoryModel() { Name = name, Date = date, Amount = dAmount });
         }
 
@@ -38,11 +38,6 @@ namespace TheDebtBook_Assignment1.Models
         public Dept Clone()
         {
             return this.MemberwiseClone() as Dept;
-        }
-
-        public Dept GetObject()
-        {
-            return this;
         }
 
         public List<DeptHistoryModel> GetList()

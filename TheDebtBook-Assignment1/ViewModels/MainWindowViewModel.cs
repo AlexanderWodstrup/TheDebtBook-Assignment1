@@ -32,10 +32,11 @@ namespace TheDebtBook_Assignment1.ViewModels
         {
             depts = new ObservableCollection<Dept>
             {
-                #if DEBUG
-                new Dept("Patrick Nielsen", 500),
-                new Dept("Søren", 50)
-                #endif
+                //Uncommit to have dummy info
+                //#if DEBUG
+                //new Dept("Patrick Nielsen", 500, "10. marts 2021"),
+                //new Dept("Søren", 50, "10. marts 2021")
+                //#endif
             };
             CurrentDept = null;
 
@@ -56,15 +57,7 @@ namespace TheDebtBook_Assignment1.ViewModels
             get { return currentDept; }
             set { SetProperty(ref currentDept, value); }
         }
-
-        int currentIndex = -1;
-
-        public int CurrentIndex
-        {
-            get { return currentIndex; }
-            set { SetProperty(ref currentIndex, value); }
-        }
-
+        
         #endregion
 
         #region Commands
@@ -90,7 +83,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                         {
                             if (depts.Name.Equals(newDept.Name))
                             {
-                                depts._deptHistory.Add(new DeptHistoryModel(depts.Name, newDept.Amount, "Dato"));
+                                depts._deptHistory.Add(new DeptHistoryModel(depts.Name, newDept.Amount, DateTime.Today.ToString("D")));
                                 depts.Amount = depts.Amount + newDept.Amount;
                                 alreadyExists = true;
                             }
@@ -100,7 +93,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                         {
                             Depts.Add(newDept);
                             CurrentDept = newDept;
-                            CurrentDept._deptHistory.Add(new DeptHistoryModel(newDept.Name, newDept.Amount, "Dato"));
+                            CurrentDept._deptHistory.Add(new DeptHistoryModel(newDept.Name, newDept.Amount, DateTime.Today.ToString("D")));
                         }
                     }
                 }));

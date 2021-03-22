@@ -21,7 +21,6 @@ namespace TheDebtBook_Assignment1.Models
         {
             name = dName;
             amount = dAmount;
-            //date = DateTime.Now.ToString("dd/mm");
             date = dDate;
         }
         public DeptHistoryModel Clone()
