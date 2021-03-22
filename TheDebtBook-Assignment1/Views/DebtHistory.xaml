@@ -82,6 +82,7 @@
                     Grid.Column="1"
                     Grid.Row="2"
                     Margin="10,5"
+                    Command="{Binding Path=AddValueBtnCommand}"
                     HorizontalAlignment="Right"/>
         </Grid>
     </DockPanel>

@@ -24,9 +24,9 @@ namespace TheDebtBook_Assignment1.Models
             //date = DateTime.Now.ToString("dd/mm");
             date = dDate;
         }
-        public Dept Clone()
+        public DeptHistoryModel Clone()
         {
-            return this.MemberwiseClone() as Dept;
+            return this.MemberwiseClone() as DeptHistoryModel;
         }
 
         public string Name

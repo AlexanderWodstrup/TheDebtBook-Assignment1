@@ -4,11 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Baml2006;
 using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows.Input;
 using TheDebtBook_Assignment1.Models;
 using TheDebtBook_Assignment1.ViewModels;
+using TheDebtBook_Assignment1.Views;
 
 
 namespace TheDebtBook_Assignment1.ViewModels
@@ -19,23 +21,29 @@ namespace TheDebtBook_Assignment1.ViewModels
         private string name;
         int amount;
         private string date;
+        
         public DebtHistoryViewModel()
         {
 
         }
         public DebtHistoryViewModel(Dept b1)
         {
+            CurrentDept = b1;
             List<DeptHistoryModel> calledList = b1.GetList();
             deptsHistory = new ObservableCollection<DeptHistoryModel>();
-            foreach (var VARIABLE in calledList)
+            for (int i = 0; i < calledList.Count; i++)
             {
-                if (VARIABLE.Amount != 0)
+                if (calledList[i].Amount != 0)
                 {
-                    deptsHistory.Add(new DeptHistoryModel(VARIABLE.Name, VARIABLE.Amount, "21-03-2021"));
+                    deptsHistory.Add(new DeptHistoryModel(calledList[i].Name, calledList[i].Amount, "21-03-2021"));
                 }
             }
             
-            CurrentDept = b1;
+            //DeptHistoryModel b2 = new DeptHistoryModel();
+            //b2.Name = b1.Name;
+            //b2.Amount = b1.Amount;
+            //b2.Date = "22-03-2021";
+            
         }
 
         public ObservableCollection<DeptHistoryModel> DeptsHistory
@@ -44,13 +52,14 @@ namespace TheDebtBook_Assignment1.ViewModels
             set { SetProperty(ref deptsHistory, value); }
         }
 
-        DeptHistoryModel currentDept = null;
+        Dept currentDept = null;
 
-        public DeptHistoryModel CurrentDept
+        public Dept CurrentDept
         {
             get { return currentDept; }
             set { SetProperty(ref currentDept, value); }
         }
+
         int currentIndex = -1;
 
         public int CurrentIndex
@@ -76,10 +85,10 @@ namespace TheDebtBook_Assignment1.ViewModels
             get
             {
                 bool isValid = true;
-                if (CurrentDept.Amount == 0)
-                {
-                    isValid = false;
-                }
+                //if (CurrentDept.Amount == 0)
+                //{
+                //    isValid = false;
+                //}
                 return isValid;
             }
         }
@@ -107,25 +116,24 @@ namespace TheDebtBook_Assignment1.ViewModels
         {
             get
             {
-                return _addValueBtnCommand ?? (_addValueBtnCommand = new DelegateCommand(
-                AddValueBtnCommand_Execute, AddValueBtnCommand_CanExecute)
-                .ObservesProperty(() => Amount));
-                //return _addValueBtnCommand ?? (_addValueBtnCommand = new DelegateCommand(() =>
-                //{
-                //    var newDept = new DeptHistoryModel();
-                //    newDept.Name = currentDept.Name;
-                //    newDept.Amount = currentDept.Amount;
-                //    newDept.Date = "21-03-2021";
-                //    DeptsHistory.Add(newDept);
-                //    CurrentDept = newDept;
-
-                //}));
+                return _addValueBtnCommand ?? (_addValueBtnCommand = new DelegateCommand(() =>
+                    {
+                        var newDept = new DeptHistoryModel();
+                        newDept.Name = CurrentDept.Name;
+                        newDept.Amount = CurrentDept.Amount;
+                        newDept.Date = "22-03-2021";
+                        deptsHistory.Add(newDept);
+                        CurrentDept._deptHistory.Add(newDept);
+                        //deptsHistory.Add(new DeptHistoryModel(Name = currentDept.Name, Amount = currentDept.Amount, Date = "21-03-2021"));
+                        //currentDept._deptHistory.Add(new DeptHistoryModel() { Name = name, Date = "date", Amount = amount });
+                    }));
             }
         }
 
         private void AddValueBtnCommand_Execute()
         {
             // Nothing needs to be done here
+            
         }
 
         private bool AddValueBtnCommand_CanExecute()
