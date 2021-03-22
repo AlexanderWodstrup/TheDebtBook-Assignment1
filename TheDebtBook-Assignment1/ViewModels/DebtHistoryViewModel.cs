@@ -39,11 +39,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                 }
             }
             
-            //DeptHistoryModel b2 = new DeptHistoryModel();
-            //b2.Name = b1.Name;
-            //b2.Amount = b1.Amount;
-            //b2.Date = "22-03-2021";
-            
+            CurrentDept = b1;
         }
 
         public ObservableCollection<DeptHistoryModel> DeptsHistory
