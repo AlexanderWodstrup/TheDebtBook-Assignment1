@@ -128,8 +128,7 @@ namespace TheDebtBook_Assignment1.ViewModels
 
         private void AddValueBtnCommand_Execute()
         {
-            // Nothing needs to be done here
-            
+
         }
 
         private bool AddValueBtnCommand_CanExecute()
