@@ -195,7 +195,7 @@ namespace TheDebtBook_Assignment1.ViewModels
         {
             var dialog = new SaveFileDialog
             {
-                Filter = "Agent assignment documents|*.agn|All Files|*.*",
+                Filter = "Depts documents|*.agn|All Files|*.*",
                 DefaultExt = "agn"
             };
             if (filePath == "")
