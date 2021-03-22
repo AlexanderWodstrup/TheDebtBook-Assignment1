@@ -90,6 +90,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                         {
                             if (depts.Name.Equals(newDept.Name))
                             {
+                                depts._deptHistory.Add(new DeptHistoryModel(depts.Name, newDept.Amount, "Dato"));
                                 depts.Amount = depts.Amount + newDept.Amount;
                                 alreadyExists = true;
                             }
@@ -99,6 +100,7 @@ namespace TheDebtBook_Assignment1.ViewModels
                         {
                             Depts.Add(newDept);
                             CurrentDept = newDept;
+                            CurrentDept._deptHistory.Add(new DeptHistoryModel(newDept.Name, newDept.Amount, "Dato"));
                         }
                     }
                 }));
